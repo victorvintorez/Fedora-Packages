@@ -34,8 +34,8 @@ cargo build --locked --release
 %{cargo_vendor_manifest}
 
 %install
-cargo install -j2 avoid-dev-deps --no-track --path yazi-fm
-cargo install -j2 avoid-dev-deps --no-track --path yazi-cli
+cargo install -j2 --no-track --path yazi-fm
+cargo install -j2 --no-track --path yazi-cli
 
 %if %{with check}
 %check
