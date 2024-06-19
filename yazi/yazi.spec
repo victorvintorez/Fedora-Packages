@@ -26,9 +26,9 @@ Buildrequires:  gcc
 %autosetup -n %{name}-%{version} -p1
 cargo vendor
 %cargo_prep -v vendor
-export YAZI_GEN_COMPLETIONS=1
 
 %build
+export YAZI_GEN_COMPLETIONS=1
 cargo build -p yazi-fm -p yazi-cli --locked --release
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
