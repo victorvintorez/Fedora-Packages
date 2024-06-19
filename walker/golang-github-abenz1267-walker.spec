@@ -22,6 +22,7 @@ URL:            %{gourl}
 Source:         %{gosource}
 
 BuildRequires:  go-vendor-tools
+BuildRequires:  git
 
 Requires:       gtk4-layer-shell
 
