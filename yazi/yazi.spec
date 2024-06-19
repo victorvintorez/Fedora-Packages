@@ -26,6 +26,7 @@ Buildrequires:  gcc
 %autosetup -n %{name}-%{version} -p1
 cargo vendor
 %cargo_prep -v vendor
+export YAZI_GEN_COMPLETIONS=1
 
 %build
 cargo build --locked --release
@@ -34,8 +35,14 @@ cargo build --locked --release
 %{cargo_vendor_manifest}
 
 %install
-cargo install -j2 --no-track --path yazi-fm
-cargo install -j2 --no-track --path yazi-cli
+install -Dpm755 target/release/%{name} %{buildroot}%{_bindir}/%{name}
+install -Dpm755 target/release/ya %{buildroot}%{_bindir}/ya
+install -Dpm644 yazi-cli/completions/_ya %{buildroot}%{zsh_completions_dir}/_ya
+install -Dpm644 yazi-cli/completions/ya.bash %{buildroot}%{bash_completions_dir}/ya.bash
+install -Dpm644 yazi-cli/completions/ya.fish %{buildroot}%{fish_completions_dir}/ya.fish
+install -Dpm644 yazi-boot/completions/_%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
+install -Dpm644 yazi-boot/completions/%{name}.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
+install -Dpm644 yazi-boot/completions/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
 %if %{with check}
 %check
@@ -49,6 +56,12 @@ cargo install -j2 --no-track --path yazi-cli
 %doc README.md
 %{_bindir}/ya
 %{_bindir}/yazi
+%{zsh_completions_dir}/_ya
+%{bash_completions_dir}/ya.bash
+%{fish_completions_dir}/ya.fish
+%{zsh_completions_dir}/_%{name}
+%{bash_completions_dir}/%{name}.bash
+%{fish_completions_dir}/%{name}.fish
 
 %changelog
 %autochangelog
