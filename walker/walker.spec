@@ -26,6 +26,7 @@ BuildRequires:  git
 BuildRequires:  gtk4-devel
 BuildRequires:  gobject-introspection-devel
 BuildRequires:  pkgconfig(gtk4-layer-shell-0)
+BuildRequires:  pkgconfig(libwayland)
 
 Requires:       gtk4-layer-shell
 
