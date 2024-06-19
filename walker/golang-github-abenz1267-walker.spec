@@ -25,8 +25,7 @@ BuildRequires:  go-vendor-tools
 BuildRequires:  git
 BuildRequires:  gtk4-devel
 BuildRequires:  gobject-introspection-devel
-BuildRequires:  gtk-layer-shell
-BuildRequires:  gtk4-layer-shell
+BuildRequires:  pkgconfig(gtk4-layer-shell-0)
 
 Requires:       gtk4-layer-shell
 
