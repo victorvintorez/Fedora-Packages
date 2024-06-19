@@ -2,7 +2,7 @@
 %bcond_without check
 
 Name:           wallust
-Version:        2.10.0
+Version:        3.0.0-beta
 Release:        %autorelease
 Summary:        Generate a 16 color scheme based on an image
 

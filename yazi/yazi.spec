@@ -29,7 +29,7 @@ cargo vendor
 export YAZI_GEN_COMPLETIONS=1
 
 %build
-cargo build --locked --release
+cargo build -p yazi-fm -p yazi-cli --locked --release
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
