@@ -31,9 +31,11 @@ Recommends:     wl-clipboard
 
 %prep
 %goprep -k
+go mod vendor
 %autopatch -p1
 
 %build
+export GOFLAGS=-mod=vendor
 %gobuild -o %{gobuilddir}/bin/walker %{goipath}
 
 %install
