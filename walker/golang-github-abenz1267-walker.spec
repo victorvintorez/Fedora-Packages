@@ -34,7 +34,7 @@ Recommends:     wl-clipboard
 %autopatch -p1
 
 %build
-%gobuild -mod=vendor -o %{gobuilddir}/bin/walker %{goipath}
+%gobuild -o %{gobuilddir}/bin/walker %{goipath}
 
 %install
 install -m 0755 -vd                     %{buildroot}%{_bindir}
