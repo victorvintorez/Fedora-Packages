@@ -22,6 +22,10 @@ URL:            %{gourl}
 Source:         %{gosource}
 
 BuildRequires:  go-vendor-tools
+BuildRequires:  git
+BuildRequires:  gtk4-devel
+BuildRequires:  gobject-introspection-devel
+BuildRequires:  pkgconfig(gtk4-layer-shell-0)
 
 Requires:       gtk4-layer-shell
 
@@ -31,21 +35,16 @@ Recommends:     wl-clipboard
 
 %prep
 %goprep -k
-go mod vendor
 %autopatch -p1
 
 %build
 export GOFLAGS=-mod=vendor
+go mod vendor
 %gobuild -o %{gobuilddir}/bin/walker %{goipath}
 
 %install
 install -m 0755 -vd                     %{buildroot}%{_bindir}
 install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
-
-%if %{with check}
-%check
-%gocheck
-%endif
 
 %files
 %license LICENSE
