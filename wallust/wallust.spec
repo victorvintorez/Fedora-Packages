@@ -55,10 +55,10 @@ install -Dpm644 man/%{name}.5 %{buildroot}%{_mandir}/man5
 %license cargo-vendor.txt
 %doc README.md
 %{_bindir}/wallust
-%{_mandir}/man1/%{name}*.1.*
-%{_mandir}/man5/%{name}.5.*
+%{_mandir}/man1/%{name}*.1
+%{_mandir}/man5/%{name}.5
 %{bash_completions_dir}/%{name}.bash
-%{zsh_completions_dir}/%{name}
+%{zsh_completions_dir}/_%{name}
 %{fish_completions_dir}/%{name}.fish
 
 %changelog

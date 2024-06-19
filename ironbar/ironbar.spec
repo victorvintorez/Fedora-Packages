@@ -27,7 +27,7 @@ BuildRequires:  lua-lgi
 %description %{_description}
 
 %prep
-%autosetup -n %{crate}-%{version} -p1
+%autosetup -n %{name}-%{version} -p1
 cargo vendor
 %cargo_prep -v vendor
 
