@@ -41,8 +41,8 @@ install -Dpm755 target/release/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dpm644 completions/_%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 install -Dpm644 completions/%{name}.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
 install -Dpm644 completions/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
-install -Dpm644 man/%{name}*.1 -t %{buildroot}%{_mandir}/man1
-install -Dpm644 man/%{name}.5 %{buildroot}%{_mandir}/man5
+#install -Dpm644 man/%{name}*.1 -t %{buildroot}%{_mandir}/man1
+#install -Dpm644 man/%{name}.5 %{buildroot}%{_mandir}/man5
 
 %if %{with check}
 %check
@@ -55,8 +55,8 @@ install -Dpm644 man/%{name}.5 %{buildroot}%{_mandir}/man5
 %license cargo-vendor.txt
 %doc README.md
 %{_bindir}/wallust
-%{_mandir}/man1/%{name}*.1
-%{_mandir}/man5/%{name}.5
+#%{_mandir}/man1/%{name}*.1.*
+#%{_mandir}/man5/%{name}.5.*
 %{bash_completions_dir}/%{name}.bash
 %{zsh_completions_dir}/_%{name}
 %{fish_completions_dir}/%{name}.fish

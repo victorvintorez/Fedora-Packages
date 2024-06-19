@@ -5,16 +5,6 @@
 %global goipath         github.com/abenz1267/walker
 Version:                0.0.72
 
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
-# ---
-# New Fedora packages should use %%gometa -f, which makes the package
-# ExclusiveArch to %%golang_arches_future and thus excludes the package from
-# %%ix86. If the new package is needed as a dependency for another package,
-# please consider removing that package from %%ix86 in the same way, instead of
-# building more go packages for i686. If your package is not a leaf package,
-# you'll need to coordinate the removal of the package's dependents first.
-# ---
-# REMOVE BEFORE SUBMITTING THIS FOR REVIEW
 %gometa -L -f
 
 %global common_description %{expand:
@@ -31,22 +21,22 @@ License:        MIT
 URL:            %{gourl}
 Source:         %{gosource}
 
+BuildRequires:  go-vendor-tools
+
+Requires:       gtk4-layer-shell
+
+Recommends:     wl-clipboard
+
 %description %{common_description}
 
-%gopkg
-
 %prep
-%goprep -A
+%goprep -k
 %autopatch -p1
 
-%generate_buildrequires
-%go_generate_buildrequires
-
 %build
-%gobuild -o %{gobuilddir}/bin/walker %{goipath}
+%gobuild -mod=vendor -o %{gobuilddir}/bin/walker %{goipath}
 
 %install
-%gopkginstall
 install -m 0755 -vd                     %{buildroot}%{_bindir}
 install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
@@ -57,10 +47,9 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %files
 %license LICENSE
+%license vendor/modules.txt
 %doc README.md version.txt
 %{_bindir}/*
-
-%gopkgfiles
 
 %changelog
 %autochangelog
