@@ -24,7 +24,7 @@ Recommends:     imagemagick
 %description %{_description}
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name} -p1
 cargo vendor
 %cargo_prep -v vendor
 
