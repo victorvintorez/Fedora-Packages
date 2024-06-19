@@ -11,7 +11,7 @@ License:        MIT
 # LICENSE.dependencies contains a full license breakdown
 
 URL:            https://github.com/jakestanger/ironbar
-Source:         %{url}/archive/%{version}.tar.gz
+Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cargo-rpm-macros >= 26
 BuildRequires:  gtk3-devel >= 3.22
