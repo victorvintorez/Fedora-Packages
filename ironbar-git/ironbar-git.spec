@@ -4,7 +4,7 @@
 %global pkgname ironbar
 
 %global commit 58190ab079d00dd53babb72346f1da6e1cc9ac72
-%global shortcommit %(c=%{commit0}; echo ${c:0:7})
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global ver 0.16.0~pre
 
 Name:           %{pkgname}-git
