@@ -8,7 +8,7 @@
 %global ver 0.16.0~pre
 
 Name:           %{pkgname}-git
-Version:        %{ver}.git.%{shortcommit}
+Version:        %{ver}.%{shortcommit}.git
 Release:        %autorelease
 Summary:        Customisable GTK Layer Shell wlroots/sway bar
 
