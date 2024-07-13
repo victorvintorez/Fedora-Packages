@@ -21,6 +21,11 @@ BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  luajit-devel
 BuildRequires:  lua-lgi
 
+Conflicts:      ironbar-git
+Provides:       ironbar
+
+Enhances:       hyprland
+
 %global _description %{expand:
 %{summary}.}
 
