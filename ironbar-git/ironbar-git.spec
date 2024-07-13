@@ -8,7 +8,7 @@
 %global ver 0.16.0~pre
 
 Name:           %{pkgname}-git
-Version:        %{ver}.%{shortcommit}.git
+Version:        %{ver}.git.%{shortcommit}
 Release:        %autorelease
 Summary:        Customisable GTK Layer Shell wlroots/sway bar
 
@@ -38,7 +38,7 @@ Enhances:       hyprland
 %description %{_description}
 
 %prep
-%autosetup -n %{pkgname}-%{version} -p1
+%autosetup -n %{pkgname}-%{commit} -p1
 cargo vendor
 %cargo_prep -v vendor
 
