@@ -19,6 +19,7 @@ URL:            https://github.com/verdiwm/verdi
 Source:         %{url}/archive/%{commit}/%{pkgname}-%{shortcommit}.tar.gz
 
 BuildRequires:  cargo-rpm-macros >= 24
+BuildRequires:  curl
 
 Requires:       libinput
 
@@ -32,6 +33,10 @@ Provides:       verdi
 
 %prep
 %autosetup -n %{pkgname}-%{commit} -p1
+# Install and enable rustup for nightly
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+rustup toolchain link system /usr
+# vendor dependencies
 cargo vendor
 %cargo_prep -v vendor
 
