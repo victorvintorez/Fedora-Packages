@@ -33,13 +33,12 @@ Provides:       verdi
 
 %prep
 %autosetup -n %{pkgname}-%{commit} -p1
+cargo vendor
+%cargo_prep -v vendor
 # Install and enable rustup for nightly
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 . "$HOME/.cargo/env"
 rustup toolchain link system /usr
-# vendor dependencies
-cargo vendor
-%cargo_prep -v vendor
 
 %build
 cargo build --locked --release
