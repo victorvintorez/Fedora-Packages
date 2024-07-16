@@ -35,6 +35,7 @@ Provides:       verdi
 %autosetup -n %{pkgname}-%{commit} -p1
 # Install and enable rustup for nightly
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+. "$HOME/.cargo/env"
 rustup toolchain link system /usr
 # vendor dependencies
 cargo vendor
