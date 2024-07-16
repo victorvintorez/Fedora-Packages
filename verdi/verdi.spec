@@ -3,7 +3,7 @@
 
 %global pkgname verdi
 
-%global commit
+%global commit 8fa0245ddef5f2fc09923de6fb24a134125a736d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global ver 0.0.1
 
